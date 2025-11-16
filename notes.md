@@ -1,0 +1,217 @@
+# AWS Solution Architect Associate Notes
+
+## IAM - Identity and Access Management
+Root account created by default for AWS account
+Create users within your organisation, can be grouped
+
+- User and Groups assigned policies - JSON document
+- "Inline" policy - only on user, not inherited from group
+- Policies have: effect (allow/deny), principal, actions, resources
+
+Policy JSON for AdministratorAccess, AWS console lists all services allowed. But JSON is simple!
+
+``` JSON
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "*",
+            "Resource": "*"
+        }
+    ]
+}
+```
+
+### IAM Roles
+
+- Like a user, but roles are only used by AWS services
+- e.g. EC2 VM might use a role to access AWS
+
+### IAM Tools
+
+- IAM Credentials Report, Report that lists all users and status
+- IAM Access Advisor
+
+### IAM Best Practices
+
+- Don't user root except for AWS account setup
+- Users should be in groups, groups should be assigned permissions
+- One user per physical person
+- Don't share keys
+- Grant least privilege (well, this is always true of anything)
+
+## EC2 - Elastic Compute Cloud
+- Infrastructure as a Service
+- VMs, distributing load, auto-scaling
+- OS Linux, Windows, Mac OS
+- Different options CPU, RAM, storage space
+- Bootstrapping with a EC2 User data script - runs with root user
+
+### Security Groups
+- Firewall on EC2 instances
+- Regular access to ports, IP ranges, inbound/outbound traffic
+- Many:Many on EC2 instances
+- Locked down to regions
+
+### Ports to know
+- 22 SSH
+- 21 FTP
+- 22 SFTP
+- 80 HTTP
+- 443 HTTPS
+- 3389 RDP
+
+### Purchase types
+- On-demand
+- Reserved Instances - 1 or 3 years reservation
+- Savings Plan
+- Spot Instances - most discounted up to 90% but can terminate at any time - not reliable for critical applications
+- Dedicated Hosts - most expensive
+- Capacity Reservations 
+
+- Strategies to allocate Spot Instances
+  - lowestPrice
+  - diversified - all pools
+  - capacityOptimized
+  - priceCapacityOptimized (recommended), highest capacity pools, then lowest price pool
+
+### Elastic IP
+
+- Failure of instance can be remapped to another instance
+- 5 Elastic IP per account
+- Recommendation - avoid it, poor architecture, use random IP with a DNS name
+
+### Placement Groups
+- Strategy of where instances are put
+- Cluster - low-latency, single group in single AZ (availability zone). Great network, 10 Gbps bandwidth. But if AZ fails, everything fails.
+- Spread - spread across hardware, max 7 instances per group per AZ, for critical apps. Minimises risk, on different hardware across AZs. Good for high availability, critical applications.
+- Partition - instances across many partitions within AZ. Partition can have many instances. Each partition is a physical rack of servers. A partition could faild but won't effect other partitions. Use case: big data applications, HDFS, HBase, Cassandra, Kafka
+
+### Elastic Network Interfaces (ENI)
+
+- Virtual network card in a VPC (Virtual Private Cloud)
+- Attach one or more to EC2
+- Bound to an AZ
+
+### Hibernate
+- Option to change behaviour of "stop" which usually shuts down OS, not preserving current state
+- RAM is preserved in EBS volume, fast instance boot
+- RAM must be less than 150GB
+- Not supported by bare metal instances
+- No more than 60 days of hibernation
+
+### Storage Options - EBS
+- EBS (Elastic Block Store) Volume
+- Usually one per EC2 instance, though some EBS has multi-attach feature, but EC2 can have many EBS
+- Like a network USB stick
+- By default, root EBD has "delete on termination" of instance
+
+### EBS Snapshot
+- Make a backup of EBS, copy across AZ or region
+- Archive tier, 75% cheaper, takes 24-72 horus to restore
+- Recycle bin with retention period
+- Fast Snapshot Restore (FSR), force EBS to be fully initialised after restored from EBS snapshot
+
+### AMI - Amazon Machine Image
+- Customisation of EC2 image, own software, configuration, operating system, etc.
+- Faster boot / config if all software is in the image
+- Built for specific region, can be copied across regions
+- Public AMIs e.g. Amazon Linux 2
+- Your own AMI
+- AWS Marketplace AMI, made by someone else
+- Can build an AMI from an EC2 instance after its been customised and stopped
+- Building an AMI creates EBS snapshots
+
+### Storage Options - EC2 Instance Store
+- EBS volumes are on network. EC2 Instance Store are physical drives attached to the EC2's server
+- EC2 Instance Store lose storage if stopped
+- Good for buffer/cache, temporary content
+- Backups are user's responsibility
+- If you need EC2 with high-performance hardware, probably has EC2 Instance Store with high Read/Write IOPS
+
+### EBS Volume Types
+- gp2/gp3 general purpose SSDs, variety of workloads
+- io1/io2 block express SSD, high performance SSDs, good for database workloads
+- st1, low cost HDD, frequently accessed, high-throughput. Good for big data, data warehouses
+- sc1, lowest cost HDD, less frequently accessed. Cold HDD storage
+
+Only SSDs can be used as root volumes 
+
+gp2, size of drive and IOPS linked
+gp3, IOPS and size can be set independently
+
+io2 - very high provisioned IOPS (PIOPS) max 256,000 IOPS per volume
+io1/io2 support multi-attach
+io1 max 64,000 IOPS per volume
+
+For >32,000 IOPS, need EC2 Nitro, io1/io2
+For >256,000 IOPS, need Instance Store not EBS
+
+### Multi-attach
+- UP TO 16 EC2 INSTANCES (must know for exam)
+- Clustered Linux applications - higher availability
+- Concurrent write operations
+- File system must be cluster-aware
+
+### Amazon EFS - Elastic File System
+- Managed NFS (network file system)
+- Mount to many EC2 instances across many AZ
+- Expensive, approx 3x gp2
+- Use cases: content management, data sharing
+- NFSv4.1
+- Encryption at rest KMS
+- Compatible with Linux AMI
+- POSIX file system
+- Performance Modes
+  - General Purpose
+  - Max I/O, higher latency but highly parallel
+
+EFS Storage Tiers
+- Standard
+- Infrequent access
+- Archive
+
+Can move individual files between the storage tiers, automatically depending on how frequently accessed. Default option is move to infrequent if not accessed for 30 days, move to archive if not accessed for 90 days.
+
+Availability
+- Standard/Regional, multi AZ
+- One Zone, one AZ, good for dev
+
+Throughput Mode
+- Enhanced Elactic
+- Enhanced Provisioned
+- Bursting
+
+### EBS vs EFS
+- EFS can have 100s of instances across AZs, e.g. share website files
+- EBS really tied to one instance except for specialised concurrent computing applications, and always tied to one AZ
+- EFS only for Linux (POSIX)
+
+## Elastic Load Balancing (ELB)
+- Forwards traffic to multiple EC2 instances
+- Expose one DNS for application, many EC2s
+- Handles failures, runs health checks, provide SSL
+- High availability
+- Separate public traffic and private traffic
+- Integrated with loads of AWS services
+
+### Health Checks
+- Crucial for load balancers
+- Done on a port and a route, /health endpoint is common
+- If no 200, than not healthy
+
+Four types of load balancers
+- Classic Load Balancer
+  - Deprecated
+- Application Load Balancer
+  - HTTP, HTTPS, WebSocket
+  - Layer 7 HTTP
+  - Load balance to multiple application on same machine
+  - Support redirects
+- Network Load Balancer
+  - TCP, TLS, UDP
+- Gateway Load Balancer
+  - Layer 3 (network layer) IP Protocol
+
+Can restrict EC2 traffic to source from load balancer's security group
