@@ -1,6 +1,6 @@
 # Miscellaneous Notes
 
-## Instantiating applications
+## Instantiating applications (fast)
 
 ### EC2
 
@@ -14,3 +14,9 @@
 ### EBS 
 
 - Restore from snapshot, formatted, data ready
+
+## SQS vs SNS vs Kinesis
+
+- SQS consumers pull data, SNS pushes data to subscribers, kinesis standard is pull data (2MB/s per shard) or enhanced fan-out is push (2MB/s per shard per consumer)
+- SQS data deleted after being consumed, SNS data not persisted if not consumed, Kinesis can replay data until it expires after X days
+- Kinesis for real-time big data
