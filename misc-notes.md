@@ -20,3 +20,13 @@
 - SQS consumers pull data, SNS pushes data to subscribers, kinesis standard is pull data (2MB/s per shard) or enhanced fan-out is push (2MB/s per shard per consumer)
 - SQS data deleted after being consumed, SNS data not persisted if not consumed, Kinesis can replay data until it expires after X days
 - Kinesis for real-time big data
+
+## App2Container
+
+Automated tool to convert Java and .NET web apps to Docker images that can be run in AWS
+
+Automatically create CloudFormation template to create ECS Task or EKS Pod definitions
+
+Docker image goes to ECR
+
+Deploy to ECS/EKS/AppRunner
