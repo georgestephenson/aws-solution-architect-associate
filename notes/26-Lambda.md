@@ -81,3 +81,9 @@ Two types: CloudFront Functions, Lambda@Edge
 - RDS can invoke the Lambda, to e.g. send email
 - Must allow outbound traffic from DB, and have required permission with IAM policy to invoke function
 - RDS event notifications are different data events. They are events about the DB itself not the data. They can be pushed to SNS or EventBridge then onto Lambda.
+
+## Step Functions
+
+- Orchestrate Lambda functions with visual workflow
+- Can orchestrate other AWS services too
+- Can add human approvals
