@@ -30,7 +30,7 @@ Automated patching
 
 Can define subset of Aurora instances as custom endpoint - used for e.g. analytical queries
 
-### Aurora Severless
+### Aurora Serverless
 
 Automated database instantiation, no capacity planning
 

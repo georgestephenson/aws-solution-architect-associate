@@ -30,3 +30,26 @@ Automatically create CloudFormation template to create ECS Task or EKS Pod defin
 Docker image goes to ECR
 
 Deploy to ECS/EKS/AppRunner
+
+## Other Databases
+
+### DocumentDB
+
+- AWS-implementation layer for MongoDB NoSQL database
+- Fully managed, highly available, replication across 3 AZ
+
+### Nepture
+
+- Fully managed graph database
+- Highly available, replication across 3 AZ
+- Use cases: wikipedia database is knowledge graph, social networking
+- Steams: real-time ordered sequence of changes to graph DB. REST API for this. No duplicates, strict ordering.
+
+### Amazon Keyspaces
+
+- Managed Apache Cassandra database, serverless, auto-scaling, replicated across AZ.
+
+### Amazon Timestream
+
+- Time series database. Data plotted against time.
+- Much faster and cheaper for time series data than relational databases.
