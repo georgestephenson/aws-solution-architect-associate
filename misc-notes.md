@@ -94,3 +94,102 @@ Deploy to ECS/EKS/AppRunner
 - Fully managed Apache Kafka
 - Deploy MSK to your VPC, multi-AZ, or Serverless option without managing capacity.
 - Kinesis Data Streams with Shards = Kafka Topics with partitions
+
+## CloudFormation
+
+- Declarative way of outlining AWS Infrastructure
+- Infrastructure as Code
+- Declarative code
+- Sounds similar to Terraform
+- Can visualise using Infrastructure Composer
+
+### CloudFormation Service Role
+
+- IAM roles
+- Even if user doesn't have permission on resources directly
+- User must have iam:PassRole permission
+
+## Simple Email Service (SES)
+
+- Managed service to send emails
+- Reputation, performance, anti-spam
+
+## Amazon Pinpoint
+
+- 2-way marketing communications
+- SMS, email, push, voice, in-app messaging
+- SNS and SES allow fine-grain notifications and emails whereas Pinpoin is full marketing campaign management
+
+## Systems Manager
+
+### SSM Session Manager
+
+- Secure shell to your EC2 through service with IAM permissions, no port 22 needed in EC2 instance
+
+### Run Command
+
+- Run command across multiple instances without SSH
+
+### Patch Manager
+
+- Automate patching managed instances
+- EC2 instances, on-premises servers
+- On-demand or scheduled
+
+### Maintenance Windows
+
+- Schedule actions on servers, could be OS patching, drivers, installing software
+
+### Automation
+
+- Common maintenance or deployment task on EC2 or other AWS resources
+- e.g. restart instances
+
+## Cost Explorer
+
+- Manage AWS costs
+- Custom reports
+- Choose optimal Savings Plan. Savings Plan feature is an alternative to Reserved Instances.
+- Forecasts of usage and cost
+
+## AWS Cost Anomaly Detection
+
+- Use ML to detect unusual cost patterns, spikes, increases, etc.
+- Monitors service
+- Root-cause analysis
+- Anomaly detection report
+- Daily/weekly summary sent using SNS
+
+## AWS Outposts
+
+- AWS provided service racks for hybrid cloud implementations
+- Can use AWS services on-prem as if you're in the cloud
+- Called "Outposts Racks"
+- Difference is you're responsible for security of the rack
+
+## AWS Batch
+
+- Fully managed batch processing
+- Batch jobs, can run 100,000s of them
+- Dynamically launch EC2 instances or Spot Instances
+- Docker images and run on ECS
+- Unlike Lambda, no time limit in Batch
+
+## Amazon AppFlow
+
+- Securely transfer data between SaaS apps and AWS
+- From e.g. SAP, Salesforce, ServiceNow, Slack, Zendesk
+- Schedule, event-driven or on-demand
+
+## AWS Amplify
+
+- Web and mobile dev tool
+- Amplify CLI can configure all the AWS resources need for your app
+- Amplify Frontend Libraries like React, Flutter, etc
+- Deploy using Amplify Console
+
+## Instance Scheduler
+
+- Through CloudFormation, schedule instances to start/stop automatically
+- Schedules managed in DynamoDB
+- Cross-account and cross-region
