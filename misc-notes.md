@@ -5,7 +5,7 @@
 ### EC2
 
 - Golden AMI: install applications into an image, launch EC2 instances quickly from AMI
-- Dynamic config with User Data scripts, so hybrid of Golden EMI and User Data
+- Dynamic config with User Data scripts, so hybrid of Golden EMI and User Data. Point here is using User Data for dynamic config, but not for the actual installation itself.
 
 ### RDS
 

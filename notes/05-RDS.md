@@ -95,3 +95,7 @@ For Aurora, can do a similar backup using Percona XtraBackup
 - Reduce failover time
 - Must be accessed from VPC not publicly
 - Lambda functions - can scale to many functions, for RDS proxy can pool all into RDS proxy (which is itself scalable)
+
+## SSL
+
+RDS can be configured to SSL certificates in transit.

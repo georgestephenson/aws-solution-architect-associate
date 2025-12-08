@@ -1,5 +1,6 @@
 # Amazon DynamoDB Notes
 
+- Key-value and document database (commonly called NoSQL)
 - Fully managed, highly available, multi-AZ replication DB
 - NoSQL with transactions
 - Millions of requests per sec, trillions of rows, 100s of TB

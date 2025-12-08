@@ -53,6 +53,8 @@ Full production site running in AWS, full redundancy
 - Source can be on-prem or EC2 instance database, Azure, RDS, S3, DocumentDB
 - Targets can be on-prem or pretty much any AWS DBs
 
+Database Migration Service (DMS) is a very fast way to migrate between different database setups with minimal setup, e.g. between S3 buckets and Kinesis Data Streams, or between RDS Databases and Amazon Redshift data warehouse
+
 ### AWS Schema Conversion Tool (SCT)
 
 - Convert schema from one DB engine to another

@@ -64,6 +64,7 @@
 - Must disable EC2 source/destination check to allow the network packet rewriting
 - Not highly available/resilient, needs an ASG in multi-AZ etc
 - Must manage Security Groups and Roles
+- Supports port forwarding, Security Groups, can be used as bastion server
 
 ## NAT Gateway
 
@@ -223,3 +224,7 @@ Lead times often longer than 1 month to estable a Direct Connect connection
 - Rules centrally applied, apply to many VPCs
 - Support lots of rules, IPs, protocal, domain list rules, regex patterns, traffic filtering
 - Send logs to usual log services, S3, CloudWatch Logs, Kinesis Data Firehose
+
+## VPC Sharing
+
+- AWS accounts can share one or more subnets using VPC sharing, part of Resource Access Manager

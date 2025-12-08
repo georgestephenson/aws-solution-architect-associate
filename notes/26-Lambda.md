@@ -87,3 +87,7 @@ Two types: CloudFront Functions, Lambda@Edge
 - Orchestrate Lambda functions with visual workflow
 - Can orchestrate other AWS services too
 - Can add human approvals
+
+## Layers
+
+- ZIP archive of libraries or other dependencies. Layers can be used in Lambda function without needing to be in deployment package.
