@@ -122,6 +122,8 @@ Deploy to ECS/EKS/AppRunner
 
 ## Systems Manager
 
+Automatically or manually perform actions on resources, typically EC2. Can handle many maintenance tasks.
+
 ### SSM Session Manager
 
 - Secure shell to your EC2 through service with IAM permissions, no port 22 needed in EC2 instance
@@ -144,6 +146,8 @@ Deploy to ECS/EKS/AppRunner
 
 - Common maintenance or deployment task on EC2 or other AWS resources
 - e.g. restart instances
+- You can manually execute the tasks even though they are for automation of tasks across AWS resources.
+- Could use to manually take EBS snapshots of hundreds of volumes.
 
 ## Cost Explorer
 

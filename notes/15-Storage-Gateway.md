@@ -8,6 +8,7 @@ Cloud native storage options
 Storage Gateway bridges between on-premises data and cloud data
 - Hybrid Cloud
 - Use cases: disaster recovery, backup, on-premises cache for data in AWS
+- Storage Gateway and EFS can provide low latency access for many EC2 instances
 
 ## S3 File Gateway
 
