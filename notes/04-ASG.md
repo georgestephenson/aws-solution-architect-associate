@@ -41,3 +41,20 @@ CloudWatch Alarms
 - Custom using CloudWatch
 
 After scaling, you are in cooldown period, the ASG won't launch or terminate more during cooldown period.
+
+## Launch Configuration vs Launch Template
+
+Launch template newer and now what AWS recommends. Recommend to migrate to Launch Template
+
+### Launch Configuration
+
+- Document with information for provisioning an EC2 instance, same as you would do manually
+- Can't be modified after creation
+- Only for ASGs
+- Can't create new ones now. So basically deprecated.
+
+### Launch Template
+
+- Similar but more versatile
+- Can use for a one-off EC2 instance, spot fleet, or ASG
+- Versioned, so can be changed
