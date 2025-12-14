@@ -15,6 +15,7 @@
 - Health Checks
 - Fast regional failover
 - Security, DDoS protection with AWS Shield
+- Routes traffic to the fastest endpoint
 
 ## CloudFront vs Global Accelerator
 - CloudFront works with static and dynamic content, content served from edge locations

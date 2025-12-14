@@ -38,6 +38,8 @@
 ## Subnets
 
 - 5 IP addresses reserved in each subnet (first 4 and last 1) not available for EC2 instances
+- Subnet can only exist in on Availability Zone (AZ)
+- But subnets in different AZ can be in same VPC albeit the VPC must be a single region.
 
 ## Internet Gateway (IGW)
 
@@ -54,9 +56,13 @@
 - Bastion Host must allow public CIDR of your company on port 22, but not open to everything
 - Private EC2 instances must allow Bastion Host SG, or the private IP of the Bastion Host
 
-## NAT Instance (outdated)
+## NAT
 
 - Network Address Translation
+- NAT must be in public subnet while instances using it must be in a different subnet with different default routes and route tables, i.e. private subnet.
+
+### NAT Instance (outdated)
+
 - Allows EC2 in private subnet to connect to the Internet
 - NAT instance launched in Public Subnet, Elastic IP attached to it
 - Route table set to route traffic from private subnet to NAT Instance
@@ -66,7 +72,7 @@
 - Must manage Security Groups and Roles
 - Supports port forwarding, Security Groups, can be used as bastion server
 
-## NAT Gateway
+### NAT Gateway
 
 - AWS-managed NAT
 - High availability, no admin
@@ -74,6 +80,7 @@
 - Created in AZ with Elastic IP
 - Must be used by EC2 in a different subnet
 - Requires an IGW
+- No security group for a NAT gateway, but has a NACL in its subnet.
 
 ### Resiliency
 
