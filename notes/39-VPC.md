@@ -235,3 +235,8 @@ Lead times often longer than 1 month to estable a Direct Connect connection
 ## VPC Sharing
 
 - AWS accounts can share one or more subnets using VPC sharing, part of Resource Access Manager
+
+## PrivateLink
+
+- Privately connect VPC to services as if they were in the VPC.
+- e.g. create an NLB that connects to RDS to access via PrivateLink to a VPC
