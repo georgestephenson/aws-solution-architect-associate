@@ -95,7 +95,45 @@ For Aurora, can do a similar backup using Percona XtraBackup
 - Reduce failover time
 - Must be accessed from VPC not publicly
 - Lambda functions - can scale to many functions, for RDS proxy can pool all into RDS proxy (which is itself scalable)
+- Allows you to use IAM roles instead of database connection string to connect.
 
 ## SSL
 
 RDS can be configured to SSL certificates in transit.
+
+## Option Groups
+
+- Specify features to apply to one or more instances
+- Could be SQL Server/Oracle "transparent data encryption (TDE)"
+- Or MySQL/MariaDB audit plug-in to log logons and queries
+- Or Oracle S3 integration
+- Requires more memory to enable
+
+## Instance Classes
+
+- Standard - db.m6i
+- Memory Optimized - db.x1e, 3904GB of memory
+- Burstable Performance - for dev/test. db.t4g.
+
+## IOPS
+
+- IOPS will measure how many pages of data can be written to. 
+- MySQL/MariaDB pages are 16kb, Oracle/PostgreSQL/MSSQL is 8kb.
+- So generally, smaller pages means more IOPS required to read 100MB.
+- However, AWS would count a 64kb page as 2 IOPS, max in 1 IOPS is 32KB, so not quite this simple.
+
+## Storage types
+
+### General-Purpose SSD (gp2)
+
+- Up to 16000 IOPS, proportional to disk size.
+- Bursting: small volumes get some temporary bursts to 3000 IOPS for spikes in demand, according to a formula. This uses your "credit balance" for IOPS. Replenishes over time to the max of 5.4M credits.
+
+### Provisioned IOPS SSD (io1)
+
+- Specify IOPS number you need.
+- Up to 256,000 IOPS.
+
+### Magnetic Storage (Standard)
+
+- Being phased out, max 1TB and 100 IOPS.
