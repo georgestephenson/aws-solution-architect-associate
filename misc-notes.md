@@ -78,6 +78,7 @@ Deploy to ECS/EKS/AppRunner
 - Use case: e.g. convert CSV from S3 to Parquet back to S3, for Redshift analysis, columnar data more performant for analysis
 - Glue Data Catalog uses Glue Data Crawler to discover data sources across AWS services and track metadata. Central to many analytics service like Athena, Redshift Spectrum, and EMR.
 - DataBrew - visually build transform workflows on top of raw Parquet files in S3. Studio is more for low-code ETL workflows more suitable for developers and data engineers.
+- Job bookmarks track data that has already been processed by AWS Glue.
 
 ### AWS Lakes Formation
 

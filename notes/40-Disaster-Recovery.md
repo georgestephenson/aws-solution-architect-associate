@@ -81,7 +81,13 @@ Last option: use DMS
 - VM Import / Export
 - AWS Application Discovery Service, can scan on-premises servers to plan a migration. Track with AWS Migration Hub.
 - AWS Database Migration Service (DMS), replicate until ready to promote cloud replica to the primary database
-- AWS Application Migration Service (MGN), incremental replication of on-premises servers
+
+### AWS Application Migration Service (MGN)
+
+- Incremental replication of on-premises servers
+- Install AWS replication agent on VMs
+- Launch test instances while still using VMs for production
+- Stop VMs and launch cutover instances to test traffic in AWS.
 
 ## AWS Backup
 

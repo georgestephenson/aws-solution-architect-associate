@@ -115,7 +115,7 @@ New NACLs deny everything by default. But Default NACL accepts inbound/outbound 
 
 ## VPC Endpoints
 
-- Allow VPCs to connect to AWS services without going through public Internet, but throught the private AWS network
+- Allow VPCs to connect to AWS services without going through public Internet, but through the private AWS network
 - Instead of a NAT Gateway + Internet Gateway, just use VPC Endpoint to access AWS services from a Private Subnet
 - Redundant and scale horizontally
 
@@ -123,6 +123,7 @@ New NACLs deny everything by default. But Default NACL accepts inbound/outbound 
 
 - Interface Endpoints, powered by PrivateLink. Provisions ENI with private IP address as entry point. Must attach SG. Cost per hour and per GB
 - Gateway Endpoints. Provisions gateway, must be used as target in route table. No SG. Supports S3 and DynamoDB. Free
+- e.g. use an S3 Gateway Endpoint to access S3 privately from your VPC without going through Internet
 
 ## VPC Flow Logs
 

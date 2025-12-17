@@ -10,6 +10,9 @@ Storage Gateway bridges between on-premises data and cloud data
 - Use cases: disaster recovery, backup, on-premises cache for data in AWS
 - Storage Gateway and EFS can provide low latency access for many EC2 instances
 
+1. Use cached volumes as iSCSI targets to store the most frequently accessed date with low latency
+2. Use stored volumes as iSCSI targets to store entire dataset
+
 ## S3 File Gateway
 
 - Connect S3 bucket to on-premises network with an S3 File Gateway

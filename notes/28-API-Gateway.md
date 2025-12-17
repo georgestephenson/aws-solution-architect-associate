@@ -17,3 +17,5 @@ Can redirect to Lambda function, or HTTP, or any AWS service
 - Edge-Optimized (default): routed through edge locations, though gateway in only one region
 - Regional: one region, could manually combine with CloudFront for more control
 - Private: own VPC
+
+You can use IAM resource policies to control who access the AWS gateway.

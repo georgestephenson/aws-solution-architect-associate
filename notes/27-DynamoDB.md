@@ -18,7 +18,7 @@
 
 ## Modes
 
-- Provisioned Mode: specify reads/writes per second, pay for provisioned read and write units
+- Provisioned Mode: specify reads/writes per second, pay for provisioned read and write units. The key thing about provisioned mode is that it reduces cost. You can enable auto-scale in provisioned mode.
 - On-Demand Mode: auto-scale, pay for anything you use, more expensive but better if unpredictable load
 
 ## DynamoDB Accelerator (DAX)

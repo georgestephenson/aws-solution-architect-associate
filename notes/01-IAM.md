@@ -101,6 +101,8 @@ Three versions:
 - AD Connector, proxy to on-prem AD, users managed on-prem
 - Simple AD, AD-compatible managed director on AWS, but can't be joined with on-prem AD
 
+AD connector is going to be the preferred choice for most simply connecting on-prem AD to AWS and still working with AWS IAM Identity Center and using AWS identity management principles, while still using on-prem AD as the source of truth. AWS Managed Microsoft AD will add operational overheads unless there's a need for AD-native services in AWS.
+
 ## AWS Control Tower
 
 - Set up and govern multi-account AWS
