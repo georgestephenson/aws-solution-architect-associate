@@ -69,11 +69,11 @@ Two types: CloudFront Functions, Lambda@Edge
 
 ### Lambda in VPC
 
-- By default Lambda outside your VPC in AWS's own VPC
+- By default Lambda is outside your VPC in AWS's own VPC
 - Can specify your VPC, subnet and security groups
 - Lambda creates ENI in your subnet
 - Lambda with RDS DB proxy: direct Lambda connection would open too many connections. RDS proxy will pool DB connections.
-- RDS proxy never public, so Lambda needs to be in your VPC.
+- RDS proxy never public, so Lambda needs to be in your VPC for this use case.
 
 ### RDS and Aurora
 

@@ -38,3 +38,7 @@
 ## Cache Invalidation
 
 - CloudFront Invalidation : bypass TTL to refresh cache. Invalidate all files (\*) or special path (/images/\*)
+
+## Field-level encryption
+
+- Use CloudFront field-level encryption as an extra level of security on top of HTTPS. Specify fields in POST requests that should be encrypted, and they will be encrypted at the edge with a public key, and remain encrypted in the origin, only applications with the right permissions have the private key to unencrypt the data.
