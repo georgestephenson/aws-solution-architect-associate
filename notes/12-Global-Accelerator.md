@@ -20,6 +20,7 @@
 ## CloudFront vs Global Accelerator
 - CloudFront works with static and dynamic content, content served from edge locations
 - Global Accelerator, content still served by application, but proxying packets from edge location, improving performance, good for use cases like gaming (UDP), IoT, Voice over IP
+- So Global Accelerator is better for non-HTTP use cases, whereas CloudFront is well suited to static and dynamic HTTP content, so you would choose one over the other rather than having both usually.
 
 ## Endpoint Weights
 

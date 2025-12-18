@@ -109,6 +109,7 @@ New NACLs deny everything by default. But Default NACL accepts inbound/outbound 
 ## VPC Peering
 
 - Privately connect two VPCs as if they're the same network
+- Obviously this should if you fully trust both VPCs, i.e. you own both of them
 - Can't have overlapping CIDRs
 - Not transitive, each VPC needs an explicit connection to communicate with each other VPC
 - Can be cross-account and/or cross-region
@@ -241,3 +242,4 @@ Lead times often longer than 1 month to estable a Direct Connect connection
 
 - Privately connect VPC to services as if they were in the VPC.
 - e.g. create an NLB that connects to RDS to access via PrivateLink to a VPC
+- Use to connect services between third parties

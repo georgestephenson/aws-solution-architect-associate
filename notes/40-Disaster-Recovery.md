@@ -55,6 +55,8 @@ Full production site running in AWS, full redundancy
 
 Database Migration Service (DMS) is a very fast way to migrate between different database setups with minimal setup, e.g. between S3 buckets and Kinesis Data Streams, or between RDS Databases and Amazon Redshift data warehouse
 
+Create an "ongoing replication task" or "change data capture" (CDC) to capture ongoing changes while migrating a database to AWS.
+
 ### AWS Schema Conversion Tool (SCT)
 
 - Convert schema from one DB engine to another

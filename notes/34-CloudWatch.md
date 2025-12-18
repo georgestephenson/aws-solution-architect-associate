@@ -22,6 +22,7 @@
 - Lots of sources for logs
 - S3 Export batch job
 - Use Logs Subscriptions for real-time logging events
+  - Can stream logs to Amazon OpenSearch with CloudWatch logs subscription
 - Can do log aggregation with subscription filters
 - Can send logs to other accounts with cross-account subscription, configuring IAM role and access policy to deliver to kinesis data streams
 

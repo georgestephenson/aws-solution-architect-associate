@@ -80,7 +80,7 @@ For Aurora, can do a similar backup using Percona XtraBackup
 ## Security - RDS or Aurora
 
 - At-rest encryption using AWS KMS
-- To encrypt use backup and restore
+- To encrypt use backup and restore. You can encrypt a snapshot of a DB instance, then restore it. You can't encrypt a DB instance directly.
 - In-flight encryption, TLS, use AWS TLS root certificate
 - IAM Auth
 - Security Groups, control network access

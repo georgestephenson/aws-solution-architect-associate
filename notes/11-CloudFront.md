@@ -7,6 +7,7 @@
 ## Origins
 
 - S3 Buckets, using Origin Access Control (OAC)
+  - OAC preferred but can also use Origin Access Identity (OAI) to privately access S3 bucket from CloudFront only.
 - VPC Origin: VPC, privately connect to ALB, NLB, EC2
 - Any custom HTTP origin, S3 website or outside AWS
 

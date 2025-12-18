@@ -90,6 +90,7 @@ Object encrypted with SSE-KMS need to have replication enabled
   - Size, geo
   - Rate-limiting
 - Web ACL is regional. Can have rule groups to make them reusable
+- When creating a web ACL (protection pack), you can specify one or more CloudFront distributions to you want AWS WAF to inspect.
 
 ### Fixed IP with WAF and ALB
 
