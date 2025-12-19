@@ -80,11 +80,17 @@ Deploy to ECS/EKS/AppRunner
 - DataBrew - visually build transform workflows on top of raw Parquet files in S3. Studio is more for low-code ETL workflows more suitable for developers and data engineers.
 - Job bookmarks track data that has already been processed by AWS Glue.
 
-### AWS Lakes Formation
+### AWS Lake Formation
 
 - Data lake - fully managed service to setup your data lake
 - Combine structured and unstructured data
 - Simplifies security when you many data sources and users accessing them all from e.g. Athena and Quicksight 
+- Recommended approach for governed analytics at scale. 
+- Uses simple data lake storage in S3. 
+- Fine-grained permissions control. 
+- AWS Glue JDBC connection allows ingestion from RDS
+
+Redshift can be used on top of Lake Formation if you need "curated datasets", star/snowflake schemas, and BI dashboards, i.e. a full-fledged data warehouse solution.
 
 ### Managed Service for Apache Flink
 
