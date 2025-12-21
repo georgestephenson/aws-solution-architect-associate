@@ -7,3 +7,10 @@
   - Authorization not authentication
   - e.g. S3 access tokens for users after they log in
 - Cognito for mobile users, hundreds of users
+
+You can have a solution using User Pools and Identity Pools
+- Cognito is used as the identity provider to authenticate users (User Pools)
+- User Pools returns a JSON Web Token (JWT) for the user
+- The JWT is exchanged with the Identity Pool to **issue temporary AWS credentials**
+
+The exam questions can blur the lines between the Cognito services and test you understand the distinction and how they could work together.
